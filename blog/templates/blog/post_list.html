@@ -1,19 +1,13 @@
-<html>
-	<head>
-		<title>FTDS's blog</title>
-	</head>
-		<div>
-			<h1><a href="">FTDS E-discovery blog</a></h1>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for post in posts %}
+	<div class="post">
+		<div class="date">
+			<p> published at: {{ post.published_date }} </p>
 		</div>
-		<br><br><br>
-		{% for post in posts %}
-			<div>
-				<p> published at: {{ post.published_date }} </p>
-				<h1><a href="">{{ post.title }} </a></h1>
-				<p> {{post.text|linebreaksbr}}</p>
-			</div>
-		{% endfor %}
-
-		
-
-</html>
+		<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} </a></h1> 
+		<p> {{post.text|linebreaksbr}}</p><br><br><br>
+	</div>
+{% endfor %}
+{% endblock %}
