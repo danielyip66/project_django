@@ -5,15 +5,15 @@
 		<div>
 			<h1><a href="">FTDS E-discovery blog</a></h1>
 		</div>
+		<br><br><br>
+		{% for post in posts %}
+			<div>
+				<p> published at: {{ post.published_date }} </p>
+				<h1><a href="">{{ post.title }} </a></h1>
+				<p> {{post.text|linebreaksbr}}</p>
+			</div>
+		{% endfor %}
 
+		
 
-		<div>
-		<h2><a href="">Our first post</a></h2>
-
-		</div>
-	<body>
-		<p>Hi there!</p>
-		<em>This is our web page!!!!!</em>
-		<p>We can help you</p>
-	</body>
 </html>
